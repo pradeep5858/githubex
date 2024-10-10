@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>main1.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main1.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">random</span>
+<span class="s0">def </span><span class="s1">spin_row</span><span class="s2">():</span>
+    <span class="s1">symbols</span><span class="s2">= [</span><span class="s3">'🍒'</span><span class="s2">, </span><span class="s3">'🍋'</span><span class="s2">, </span><span class="s3">'⭐'</span><span class="s2">, </span><span class="s3">'🔔'</span><span class="s2">, </span><span class="s3">'🍉'</span><span class="s2">]</span>
+    <span class="s1">results</span><span class="s2">=[]</span>
+    <span class="s0">return</span><span class="s2">[</span><span class="s1">random</span><span class="s2">.</span><span class="s1">choice</span><span class="s2">(</span><span class="s1">symbols</span><span class="s2">) </span><span class="s0">for </span><span class="s1">_ </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s4">3</span><span class="s2">)]</span>
+<span class="s0">def </span><span class="s1">print_row</span><span class="s2">(</span><span class="s1">row</span><span class="s2">):</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;*************************&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s3">&quot; | &quot;</span><span class="s2">.</span><span class="s1">join</span><span class="s2">(</span><span class="s1">row</span><span class="s2">))</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;*************************&quot;</span><span class="s2">)</span>
+<span class="s0">def </span><span class="s1">get_payout</span><span class="s2">(</span><span class="s1">row</span><span class="s2">,</span><span class="s1">bet</span><span class="s2">):</span>
+    <span class="s0">if </span><span class="s1">row</span><span class="s2">[</span><span class="s4">0</span><span class="s2">]==</span><span class="s1">row</span><span class="s2">[</span><span class="s4">1</span><span class="s2">]==</span><span class="s1">row</span><span class="s2">[</span><span class="s4">2</span><span class="s2">]:</span>
+        <span class="s0">if </span><span class="s1">row</span><span class="s2">[</span><span class="s4">0</span><span class="s2">]==</span><span class="s3">&quot;🍒&quot;</span><span class="s2">:</span>
+            <span class="s0">return </span><span class="s1">bet</span><span class="s2">*</span><span class="s4">3</span>
+        <span class="s0">if </span><span class="s1">row</span><span class="s2">[</span><span class="s4">0</span><span class="s2">]==</span><span class="s3">&quot;🍋&quot;</span><span class="s2">:</span>
+            <span class="s0">return </span><span class="s1">bet</span><span class="s2">*</span><span class="s4">5</span>
+        <span class="s0">if </span><span class="s1">row</span><span class="s2">[</span><span class="s4">0</span><span class="s2">]==</span><span class="s3">&quot;⭐&quot;</span><span class="s2">:</span>
+            <span class="s0">return </span><span class="s1">bet</span><span class="s2">*</span><span class="s4">8</span>
+        <span class="s0">if </span><span class="s1">row</span><span class="s2">[</span><span class="s4">0</span><span class="s2">]==</span><span class="s3">&quot;🔔&quot;</span><span class="s2">:</span>
+            <span class="s0">return </span><span class="s1">bet</span><span class="s2">*</span><span class="s4">10</span>
+        <span class="s0">if </span><span class="s1">row</span><span class="s2">[</span><span class="s4">0</span><span class="s2">]==</span><span class="s3">&quot;🍉&quot;</span><span class="s2">:</span>
+            <span class="s0">return </span><span class="s1">bet</span><span class="s2">*</span><span class="s4">20</span>
+    <span class="s0">return </span><span class="s4">0</span>
+
+<span class="s0">def </span><span class="s1">main</span><span class="s2">():</span>
+    <span class="s1">balance</span><span class="s2">=</span><span class="s4">100</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;*************************&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Welcome to slot machine&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Symbols: 🍒 🍋 ⭐ 🔔 🍉&quot;</span><span class="s2">)</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;**************************&quot;</span><span class="s2">)</span>
+
+    <span class="s0">while </span><span class="s1">balance </span><span class="s2">&gt; </span><span class="s4">0</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s3">f&quot;Current balance is </span><span class="s0">{</span><span class="s1">balance</span><span class="s0">} </span><span class="s3">rupees&quot;</span><span class="s2">)</span>
+        <span class="s1">bet </span><span class="s2">= (</span><span class="s1">input</span><span class="s2">(</span><span class="s3">&quot;Place your bet amount:&quot;</span><span class="s2">))</span>
+        <span class="s0">if not </span><span class="s1">bet</span><span class="s2">.</span><span class="s1">isdigit</span><span class="s2">():</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Please enter a valid input&quot;</span><span class="s2">)</span>
+            <span class="s0">continue</span>
+        <span class="s1">bet</span><span class="s2">=</span><span class="s1">int</span><span class="s2">(</span><span class="s1">bet</span><span class="s2">)</span>
+        <span class="s0">if </span><span class="s1">bet</span><span class="s2">&gt;</span><span class="s1">balance</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Insufficient balance&quot;</span><span class="s2">)</span>
+            <span class="s0">continue</span>
+
+        <span class="s0">if </span><span class="s1">bet</span><span class="s2">&lt;=</span><span class="s4">0</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Bet must be greater than zero&quot;</span><span class="s2">)</span>
+            <span class="s0">continue</span>
+
+        <span class="s1">balance</span><span class="s2">-=</span><span class="s1">bet</span>
+        <span class="s1">row</span><span class="s2">=</span><span class="s1">spin_row</span><span class="s2">()</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Spinning....</span><span class="s0">\n</span><span class="s3">&quot;</span><span class="s2">)</span>
+        <span class="s1">print_row</span><span class="s2">(</span><span class="s1">row</span><span class="s2">)</span>
+        <span class="s1">payout</span><span class="s2">=</span><span class="s1">get_payout</span><span class="s2">(</span><span class="s1">row</span><span class="s2">,</span><span class="s1">bet</span><span class="s2">)</span>
+        <span class="s0">if </span><span class="s1">payout </span><span class="s2">&gt;</span><span class="s4">0</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s3">f&quot;you won </span><span class="s0">{</span><span class="s1">payout</span><span class="s0">} </span><span class="s3">rupees&quot;</span><span class="s2">)</span>
+        <span class="s0">else</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Better luck next time &quot;</span><span class="s2">)</span>
+        <span class="s1">balance</span><span class="s2">+=</span><span class="s1">payout</span>
+<span class="s0">if </span><span class="s1">__name__ </span><span class="s2">== </span><span class="s3">&quot;__main__&quot;</span><span class="s2">:</span>
+    <span class="s1">main</span><span class="s2">()</span>
+
+
+
+</pre>
+</body>
+</html>
